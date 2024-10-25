@@ -1,12 +1,17 @@
 import express from 'express';
 import participants from './participants';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const PORT = process.env.PORT || 0;
 
 const app = express();
 
 app.use(express.json());
 
-app.listen(8000, () => {
-  console.log('App is listening on port 3000!');
+app.listen(PORT, () => {
+  console.log(`App is listening on port ${PORT}!`);
 });
 
 app.get('/', (_, res) => {
